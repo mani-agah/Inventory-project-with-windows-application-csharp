@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AgainOstaniDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AdminTbl">
+    <Key>
+      <PropertyRef Name="AdminId" />
+    </Key>
+    <Property Name="AdminId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AdminName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AdminUserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AdminUserPassword" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AdminRull" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CustomerTbl">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CustomerLastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CustomerFatherName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CustomerNationalCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CustomerNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CustomerAddress" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FactorDetailsTbl">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Count" Type="int" Nullable="false" />
+    <Property Name="Price" Type="float" Nullable="false" />
+    <Property Name="Fk" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FactorProductSellListTbl">
+    <Key>
+      <PropertyRef Name="FactorId" />
+    </Key>
+    <Property Name="FactorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="count" Type="int" Nullable="false" />
+    <Property Name="price" Type="float" Nullable="false" />
+    <Property Name="fk" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FactorSellTbl">
+    <Key>
+      <PropertyRef Name="FactorSellId" />
+    </Key>
+    <Property Name="FactorSellId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FactorSellCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FactorSubmitTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FactorTbl">
+    <Key>
+      <PropertyRef Name="FactorId" />
+    </Key>
+    <Property Name="FactorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FactorCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FactorSubmitTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="InventoryTbl">
+    <Key>
+      <PropertyRef Name="InventoryId" />
+    </Key>
+    <Property Name="InventoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OperatorName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SubmitDate" Type="datetime" Nullable="false" />
+    <Property Name="ProductPrice" Type="float" Nullable="false" />
+    <Property Name="number" Type="int" Nullable="false" />
+    <Property Name="ExpireDate" Type="datetime" Nullable="false" />
+    <Property Name="ProductCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductTbl">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProductPrice" Type="float" Nullable="false" />
+    <Property Name="ProductExpire" Type="datetime" Nullable="false" />
+    <Property Name="ProductCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProductDescription" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProductNumber" Type="int" />
+  </EntityType>
+  <EntityType Name="RullTbl">
+    <Key>
+      <PropertyRef Name="RullId" />
+    </Key>
+    <Property Name="RullId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RullName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sellFactorTbl">
+    <Key>
+      <PropertyRef Name="FactorId" />
+    </Key>
+    <Property Name="FactorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="masoolPakhsh" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CustomerName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CustomerAddress" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CustomerNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="offer" Type="float" Nullable="false" />
+    <Property Name="factorFk" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_AdminTbl_RullTbl">
+    <End Role="RullTbl" Type="Self.RullTbl" Multiplicity="1" />
+    <End Role="AdminTbl" Type="Self.AdminTbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RullTbl">
+        <PropertyRef Name="RullId" />
+      </Principal>
+      <Dependent Role="AdminTbl">
+        <PropertyRef Name="AdminRull" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FactorDetailsTbl_FactorTbl">
+    <End Role="FactorTbl" Type="Self.FactorTbl" Multiplicity="1" />
+    <End Role="FactorDetailsTbl" Type="Self.FactorDetailsTbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FactorTbl">
+        <PropertyRef Name="FactorId" />
+      </Principal>
+      <Dependent Role="FactorDetailsTbl">
+        <PropertyRef Name="Fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AgainOstaniDbModelStoreContainer">
+    <EntitySet Name="AdminTbl" EntityType="Self.AdminTbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerTbl" EntityType="Self.CustomerTbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FactorDetailsTbl" EntityType="Self.FactorDetailsTbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FactorProductSellListTbl" EntityType="Self.FactorProductSellListTbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FactorSellTbl" EntityType="Self.FactorSellTbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FactorTbl" EntityType="Self.FactorTbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InventoryTbl" EntityType="Self.InventoryTbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductTbl" EntityType="Self.ProductTbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RullTbl" EntityType="Self.RullTbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sellFactorTbl" EntityType="Self.sellFactorTbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_AdminTbl_RullTbl" Association="Self.FK_AdminTbl_RullTbl">
+      <End Role="RullTbl" EntitySet="RullTbl" />
+      <End Role="AdminTbl" EntitySet="AdminTbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FactorDetailsTbl_FactorTbl" Association="Self.FK_FactorDetailsTbl_FactorTbl">
+      <End Role="FactorTbl" EntitySet="FactorTbl" />
+      <End Role="FactorDetailsTbl" EntitySet="FactorDetailsTbl" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

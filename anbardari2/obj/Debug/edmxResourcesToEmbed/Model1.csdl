@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AgainOstaniDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AdminTbl">
+    <Key>
+      <PropertyRef Name="AdminId" />
+    </Key>
+    <Property Name="AdminId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdminName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AdminUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AdminUserPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AdminRull" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="RullTbl" Relationship="Self.FK_AdminTbl_RullTbl" FromRole="AdminTbl" ToRole="RullTbl" />
+  </EntityType>
+  <EntityType Name="CustomerTbl">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CustomerLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CustomerFatherName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CustomerNationalCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CustomerNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CustomerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FactorDetailsTbl">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Count" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Double" Nullable="false" />
+    <Property Name="Fk" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="FactorTbl" Relationship="Self.FK_FactorDetailsTbl_FactorTbl" FromRole="FactorDetailsTbl" ToRole="FactorTbl" />
+  </EntityType>
+  <EntityType Name="FactorProductSellListTbl">
+    <Key>
+      <PropertyRef Name="FactorId" />
+    </Key>
+    <Property Name="FactorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="count" Type="Int32" Nullable="false" />
+    <Property Name="price" Type="Double" Nullable="false" />
+    <Property Name="fk" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FactorSellTbl">
+    <Key>
+      <PropertyRef Name="FactorSellId" />
+    </Key>
+    <Property Name="FactorSellId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FactorSellCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FactorSubmitTime" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="FactorTbl">
+    <Key>
+      <PropertyRef Name="FactorId" />
+    </Key>
+    <Property Name="FactorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FactorCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FactorSubmitTime" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="FactorDetailsTbls" Relationship="Self.FK_FactorDetailsTbl_FactorTbl" FromRole="FactorTbl" ToRole="FactorDetailsTbl" />
+  </EntityType>
+  <EntityType Name="InventoryTbl">
+    <Key>
+      <PropertyRef Name="InventoryId" />
+    </Key>
+    <Property Name="InventoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OperatorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SubmitDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ProductPrice" Type="Double" Nullable="false" />
+    <Property Name="number" Type="Int32" Nullable="false" />
+    <Property Name="ExpireDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ProductCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductTbl">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProductPrice" Type="Double" Nullable="false" />
+    <Property Name="ProductExpire" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ProductCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProductDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProductNumber" Type="Int32" />
+  </EntityType>
+  <EntityType Name="RullTbl">
+    <Key>
+      <PropertyRef Name="RullId" />
+    </Key>
+    <Property Name="RullId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AdminTbls" Relationship="Self.FK_AdminTbl_RullTbl" FromRole="RullTbl" ToRole="AdminTbl" />
+  </EntityType>
+  <EntityType Name="sellFactorTbl">
+    <Key>
+      <PropertyRef Name="FactorId" />
+    </Key>
+    <Property Name="FactorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="masoolPakhsh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CustomerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CustomerNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="offer" Type="Double" Nullable="false" />
+    <Property Name="factorFk" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_AdminTbl_RullTbl">
+    <End Role="RullTbl" Type="Self.RullTbl" Multiplicity="1" />
+    <End Role="AdminTbl" Type="Self.AdminTbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RullTbl">
+        <PropertyRef Name="RullId" />
+      </Principal>
+      <Dependent Role="AdminTbl">
+        <PropertyRef Name="AdminRull" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FactorDetailsTbl_FactorTbl">
+    <End Role="FactorTbl" Type="Self.FactorTbl" Multiplicity="1" />
+    <End Role="FactorDetailsTbl" Type="Self.FactorDetailsTbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FactorTbl">
+        <PropertyRef Name="FactorId" />
+      </Principal>
+      <Dependent Role="FactorDetailsTbl">
+        <PropertyRef Name="Fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AgainOstaniDbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AdminTbls" EntityType="Self.AdminTbl" />
+    <EntitySet Name="CustomerTbls" EntityType="Self.CustomerTbl" />
+    <EntitySet Name="FactorDetailsTbls" EntityType="Self.FactorDetailsTbl" />
+    <EntitySet Name="FactorProductSellListTbls" EntityType="Self.FactorProductSellListTbl" />
+    <EntitySet Name="FactorSellTbls" EntityType="Self.FactorSellTbl" />
+    <EntitySet Name="FactorTbls" EntityType="Self.FactorTbl" />
+    <EntitySet Name="InventoryTbls" EntityType="Self.InventoryTbl" />
+    <EntitySet Name="ProductTbls" EntityType="Self.ProductTbl" />
+    <EntitySet Name="RullTbls" EntityType="Self.RullTbl" />
+    <EntitySet Name="sellFactorTbls" EntityType="Self.sellFactorTbl" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK_AdminTbl_RullTbl" Association="Self.FK_AdminTbl_RullTbl">
+      <End Role="RullTbl" EntitySet="RullTbls" />
+      <End Role="AdminTbl" EntitySet="AdminTbls" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FactorDetailsTbl_FactorTbl" Association="Self.FK_FactorDetailsTbl_FactorTbl">
+      <End Role="FactorTbl" EntitySet="FactorTbls" />
+      <End Role="FactorDetailsTbl" EntitySet="FactorDetailsTbls" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
